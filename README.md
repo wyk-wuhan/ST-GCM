@@ -28,7 +28,7 @@ https://pytorch.org/
 #### Clone this repo.
 
 ```
-git clone 
+git clone https://github.com/wyk-wuhan/ST-GCM.git
 cd ST-GCM
 ```
 
