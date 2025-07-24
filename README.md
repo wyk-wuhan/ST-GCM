@@ -1,6 +1,5 @@
 # ST-GCM
 A Graph Convolutional Network Model with Contrastive Learning and Masking for Spatial Transcriptomics
-![Figure 1](https://github.com/user-attachments/assets/e59a468c-5247-41d0-82bd-096704559336)
 
 ## Requirement
 
