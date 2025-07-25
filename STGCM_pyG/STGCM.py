@@ -323,7 +323,13 @@ class STGCM(nn.Module):
         adata, use_x_1, use_x_2 = get_feature(adata)
         use_x_1 = torch.FloatTensor(adata.obsm['feat'].copy()).to(self.device)
         use_x_2 = torch.FloatTensor(adata.obsm['feat_a'].copy()).to(self.device)
-        # # 对输入数据进行两次不同的掩码和噪声处理
+        # 对输入数据进行两次不同的掩码和噪声处理
+        if self._mask_rate > 0:
+            use_x_1, (mask_nodes_1, keep_nodes_1) = self.encoding_mask_noise(use_x_1)
+            use_x_2, (mask_nodes_2, keep_nodes_2) = self.encoding_mask_noise(use_x_2)
+        else:
+            use_x_1 = use_x_1
+            use_x_2 = use_x_2
         # use_x_1, (mask_nodes_1, keep_nodes_1) = self.encoding_mask_noise(x)
         # use_x_2, (mask_nodes_2, keep_nodes_2) = self.encoding_mask_noise(x)
 
